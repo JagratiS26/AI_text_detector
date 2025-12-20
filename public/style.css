@@ -1,6 +1,6 @@
 
 
-
+/*
 html, body {
   height: 100%;
   margin: 0;
@@ -26,7 +26,7 @@ h1 {
 }
 
 textarea {
-  flex: 1; /* textarea grows to fill available space */
+  flex: 1; /* textarea grows to fill available space */ /*
   width: 100%;
   padding: 15px;
   border: 1px solid #ccc;
@@ -54,4 +54,270 @@ button:hover {
   margin-top: 20px;
   font-weight: bold;
   text-align: center;
+}
+
+*/
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Animated Gradient Background */
+.background {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, #667eea, #764ba2, #335177);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* App Wrapper */
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Glass Card */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  padding: 35px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  padding-right: 50px;
+}
+
+.tagline {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  height: 160px;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 15px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, #841165, #dd2476);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(221, 36, 118, 0.6);
+}
+
+/* Result Badge */
+.result {
+  margin-top: 25px;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: none;
+}
+
+.result.human {
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #22c55e;
+  color: #dcfce7;
+}
+
+.result.ai {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #841165;
+  color: #fee2e2;
+}
+/* Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Loader */
+.loader {
+  display: none;
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255,255,255,0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Confidence Bar */
+.confidence {
+  display: none;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.confidence-label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #303d35, #269852);
+  transition: width 0.6s ease;
+}
+
+/* Light Mode */
+body.light .background {
+  background: linear-gradient(120deg, #fdfbfb, #ebedee);
+}
+
+body.light .card {
+  color: #333;
+  background: rgba(255,255,255,0.9);
+}
+
+body.light textarea {
+  background: #f4f4f4;
+}
+
+body.light .theme-toggle {
+  background: #ddd;
+}
+/* ---------- Light Mode Result Fix ---------- */
+
+body.light .result.human {
+  background: #dcfce7;      /* light green */
+  border: 1px solid #22c55e;
+  color: #166534;           /* dark green text */
+}
+
+body.light .result.ai {
+  background: #fee2e2;      /* light red */
+  border: 1px solid #841165;
+  color: #7f1d1d;           /* dark red text */
+}
+
+body.light .confidence-label {
+  color: #374151;           /* dark gray */
+}
+
+body.light .confidence-bar {
+  background: #e5e7eb;
+}
+/* ---------- Dark Mode Background ---------- */
+
+body:not(.light) .background {
+  background: linear-gradient(
+    135deg,
+    #081637,   /* deep navy */
+    #222831,   /* slate */
+    #01030d    /* almost black */
+  );
+  background-size: 300% 300%;
+}
+/* Dark mode card contrast */ 
+body:not(.light) .card {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+body,
+.background,
+.card {
+  transition: background 0.6s ease, color 0.4s ease;
+}
+/* ---------- Clean Theme Toggle (No Glow) ---------- */
+.theme-toggle {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.theme-toggle:hover {
+  box-shadow: none !important;
+  transform: scale(1.05); /* subtle hover, no glow */
+}
+
+/* Dark mode: explicitly disable glow */
+body:not(.light) .theme-toggle {
+  box-shadow: none !important;
 }
