@@ -36,41 +36,36 @@ It includes:
 ---
 
 ## 📁 Project Structure
+
 AI_TEXT_DETECTOR/
 │
-├── app.py                  # Flask backend entry point
+├── app.py            # Flask backend entry point
 │
-├── public/                 # Frontend files
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
+├── public/           # Frontend files
+│ ├── index.html
+│ ├── style.css
+│ └── script.js
 │
-├── models/                 # Trained ML models
-│   └── trained_model.pkl
+├── models/            # Trained ML models
+│ └── trained_model.pkl
 │
-├── figures/                # SHAP & explanation images
-│   └── prediction_explanations/
+├── figures/           # SHAP explanation plots
+│ └── prediction_explanations/
 │
-├── data/                   # Dataset files
+├── data/              # Dataset files
 │
-├── reports/                # Analysis reports
+├── reports/           # Analysis & evaluation reports
 │
-├── src/                    # ML & analysis scripts
-│   ├── features.py
-│   ├── predict2.py
-│   ├── model_training2.py
-│   ├── data_processing2.py
-│   ├── evaluation2.py
-│   ├── error_analysis.py
-│   ├── confidence_error_analysis.py
-│   ├── confidence_vs_error_plot.py
-│   ├── roc_pr_curves.py
-│   └── visual_error_features.py
+├── src/               # ML & analysis scripts
+│ ├── feature_engine2.py
+│ ├── predict2.py
+│ ├── model_training2.py
+│ ├── data_processing2.py
+│ ├── evaluation2.py
+│ └── other analysis scripts
 │
+├── requirements.txt   # Project dependencies
 └── README.md
-
----
-
 
 ---
 
@@ -86,6 +81,15 @@ AI_TEXT_DETECTOR/
 5. Result is displayed on the UI
 
 ---
+
+## ▶️ How to Run the Project Locally
+
+1. Clone the repository:
+2. install required dependencies: pip install -r requirements.txt (in terminal)
+3. Run the backend server: python app.py
+4. Backend will start at: http://127.0.0.1:5000
+5. Open the frontend: Open public/index.html using Live Server or any browser.
+
 
 ## Project Status
 ✔ Frontend integrated with backend  
@@ -103,6 +107,7 @@ AI_TEXT_DETECTOR/
 - Interactive and responsive UI
 
 
+---
 
 
 
